@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ $OPEN ]; then
+  convert +append $2 $5 temp.out.png 2>/dev/null
+  open temp.out.png
+  (sleep 1; rm temp.out.png) &
+else
+  convert +append $2 $5 - 2>/dev/null | picture-tube -
+fi

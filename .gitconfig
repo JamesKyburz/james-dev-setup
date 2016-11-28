@@ -1,0 +1,44 @@
+[user]
+	name = James Kyburz
+	email = james.kyburz@gmail.com
+	username = JamesKyburz
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[branch]
+	autosetuprebase = always
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	lo = log --graph -last:3
+  lga = log --graph --decorate --oneline
+  untracked = !git add $(git ls-files -o --exclude-standard)
+  tagsbydate = log --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
+  firstleaf = "!git log --pretty=%H | head -2 | tail -1 | xargs git show"
+	unstage = reset HEAD --
+[push]
+	default = simple
+	followTags = true
+[help]
+	autocorrect = 1
+[branch]
+  autosetuprebase = always
+[branch "master"]
+  rebase = true
+  mergeoptions = --no-ff
+[branch "master"]
+	mergeoptions = always
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[diff]
+	tool = vimdiff
+[diff "image-diff"]
+  command = /usr/local/bin/image-diff
+[http]
+	postBuffer = 524288000

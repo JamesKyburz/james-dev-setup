@@ -1,0 +1,16 @@
+{
+  "name": basename.replace(/^node-/, ''),
+  "description": prompt(),
+  "keywords": prompt(),
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jameskyburz/" + (basename.replace(/^node-/, '') + ".git")
+  },
+  "author": {
+    "name": "James Kyburz",
+    "email": "james.kyburz@gmail.com"
+  },
+  "main": prompt('entry point', 'index.js'),
+  "version": "1.0.0",
+  "license": "MIT"
+}
