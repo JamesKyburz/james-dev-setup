@@ -3,7 +3,7 @@
 set -e
 
 echo "copy dotfiles"
-cp -v .vimrc .zshrc .npmrc ~/
+cp -v .vimrc .zshrc .npmrc .gitconfig ~/
 
 echo "copy git plugins"
 sudo mkdir -p /usr/local/bin
