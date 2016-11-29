@@ -13,9 +13,18 @@ echo "image diff"
 sudo cp -v image-diff /usr/local/bin/
 
 echo "install core stuff"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sh -c "$(curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh)"
+
+if [ "$(which brew)" == "" ]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+if [ ! -d ~/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+if [ ! -s ~/.vim/bundle/neobundle.vim ]; then
+  sh -c "$(curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh)"
+fi
 
 echo "installing brew cask"
 brew tap caskroom/cask
@@ -27,7 +36,7 @@ for cask in ${casks[@]}; do
   brew cask install $cask
 done
 
-installs=(node yarn jq)
+installs=(node yarn jq vim)
 
 for install in ${installs[@]}; do
   echo "installing $install"
@@ -60,7 +69,10 @@ cp pkginit.json ~/.config/pkginit/default
 
 echo "configure zshrc"
 mkdir -p ~/Documents/src
-cd ~/Documents/src
-git clone git@github.com:JamesKyburz/zsh_stuff.git
+
+if [ ! -d ~/Documents/src/zsh_stuff ]; then
+  cd ~/Documents/src
+  git clone git@github.com:JamesKyburz/zsh_stuff.git
+fi
 
 source ~/.zshrc
