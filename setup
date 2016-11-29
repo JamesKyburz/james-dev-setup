@@ -3,13 +3,14 @@
 set -e
 
 echo "copy dotfiles"
-cp -r -v .* ~/
+cp -v .vimrc .zshrc .npmrc ~/
 
 echo "copy git plugins"
-cp -v git-* /usr/local/bin/
+sudo mkdir -p /usr/local/bin
+sudo cp -v git-* /usr/local/bin/
 
 echo "image diff"
-cp -v image-diff /usr/local/bin/
+sudo cp -v image-diff /usr/local/bin/
 
 echo "install core stuff"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -19,19 +20,28 @@ sh -c "$(curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/
 echo "installing brew cask"
 brew tap caskroom/cask
 
-casks=(google-chrome alfred docker-beta bettertouchtool flux spotify sizeup)
+casks=(google-chrome alfred docker-beta bettertouchtool flux spotify sizeup 1password dropbox)
 
 for cask in ${casks[@]}; do
   echo "installing $cask"
   brew cask install $cask
 done
 
-installs=(node yarn)
+installs=(node yarn jq)
 
 for install in ${installs[@]}; do
   echo "installing $install"
   brew install $install
 done
+
+echo "configure vim"
+mkdir -p ~/.vim/bundle
+mkdir -p ~/.vim/colors
+cp -v .vim/colors/* ~/.vim/colors/
+vim +NeoBundleInstall +qall
+
+echo "configure osx"
+./.osx
 
 echo "configure yarn"
 yarn config set save-prefix ''
@@ -53,13 +63,4 @@ mkdir -p ~/Documents/src
 cd ~/Documents/src
 git clone git@github.com:JamesKyburz/zsh_stuff.git
 
-echo "configure vim"
-git clone https://github.com/vim/vim.git
-cd vim
-make distclean
-make
-sudo make install
-vim +NeoBundleInstall +qall
-
-echo "configure osx"
-~/.osx
+source ~/.zshrc
