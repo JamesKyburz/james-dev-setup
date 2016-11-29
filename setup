@@ -20,7 +20,7 @@ sh -c "$(curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/
 echo "installing brew cask"
 brew tap caskroom/cask
 
-casks=(google-chrome alfred docker-beta bettertouchtool flux spotify sizeup 1password dropbox)
+casks=(google-chrome alfred docker bettertouchtool flux spotify sizeup 1password dropbox)
 
 for cask in ${casks[@]}; do
   echo "installing $cask"
