@@ -36,7 +36,7 @@ for cask in ${casks[@]}; do
   brew cask install $cask
 done
 
-installs=(node yarn jq vim)
+installs=(node yarn jq vim htop)
 
 for install in ${installs[@]}; do
   echo "installing $install"
