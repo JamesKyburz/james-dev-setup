@@ -9,6 +9,10 @@ source ~/Documents/src/zsh_stuff/source_all.zsh
 export NODE_PATH="/usr/local/lib/node_modules"
 export EDITOR=vim
 
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+export LANGUAGE=en_GB.UTF-8
+
 cdpath=(~/Documents/src)
 alias src="cd $cdpath"
 alias wifi=osx-wifi-cli
