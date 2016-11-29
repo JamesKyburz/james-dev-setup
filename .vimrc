@@ -110,7 +110,6 @@ let g:NERDTreeUpdateOnWrite = 1
 let NERDTreeMinimalUI = 1
 "autocmd vimenter * NERDTree
 
-colors winter2
 colors neon
 
 set synmaxcol=128
