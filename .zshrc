@@ -16,6 +16,7 @@ export LANGUAGE=en_GB.UTF-8
 cdpath=(~/Documents/src)
 alias src="cd $cdpath"
 alias wifi=osx-wifi-cli
+alias vi=vim
 
 export PATH="$HOME/.yarn/bin:$PATH"
 ###-begin-npm-completion-###
