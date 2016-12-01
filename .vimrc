@@ -117,7 +117,7 @@ let &colorcolumn="80,".join(range(128,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 let g:syntastic_javascript_checkers = ['standard']
-#autocmd bufwritepost *.js silent !standard --fix index.js % &>/dev/null
+"autocmd bufwritepost *.js silent !standard --fix index.js % &>/dev/null
 
 let g:vim_json_syntax_conceal = 0
 
