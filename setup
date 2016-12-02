@@ -2,7 +2,7 @@
 
 echo "copy dotfiles (don't overwrite .gitconfig)"
 cp -v .vimrc .zshrc .npmrc ~/
-cp -v -n .gitconfig ~/
+cp -n -v .gitconfig ~/
 
 echo "copy git plugins"
 sudo mkdir -p /usr/local/bin
@@ -94,8 +94,6 @@ then
   fi
   git config --global github.token $token
 fi
-
-exit
 
 echo "configure zshrc"
 mkdir -p ~/Documents/src
