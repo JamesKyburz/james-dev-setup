@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-echo "copy dotfiles"
-cp -v .vimrc .zshrc .npmrc .gitconfig ~/
+echo "copy dotfiles (don't overwrite .gitconfig)"
+cp -v .vimrc .zshrc .npmrc ~/
+cp -v -n .gitconfig ~/
 
 echo "copy git plugins"
 sudo mkdir -p /usr/local/bin
@@ -75,6 +76,26 @@ if ! grep -Fxq "image-diff" ~/.config/git/attributes
 then
   cat git-attributes >> ~/.config/git/attributes
 fi
+
+echo "configure github"
+if ! grep -Fxq "github" ~/.gitconfig
+then
+  read -p "enter github user? " user
+  if [ "$user" == "" ]; then
+    echo "exiting as user not specified"
+    exit
+  fi
+  git config --global github.user $user
+
+  read -p "enter github token? " token
+  if [ "$token" == "" ]; then
+    echo "exiting as token not specified"
+    exit
+  fi
+  git config --global github.token $token
+fi
+
+exit
 
 echo "configure zshrc"
 mkdir -p ~/Documents/src
