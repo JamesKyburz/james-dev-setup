@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 echo "copy dotfiles"
 cp -v .vimrc .zshrc .npmrc .gitconfig ~/
 
@@ -36,7 +34,7 @@ for cask in ${casks[@]}; do
   brew cask install $cask
 done
 
-installs=(node yarn jq vim htop)
+installs=(node yarn jq vim htop imagemagick)
 
 for install in ${installs[@]}; do
   echo "installing $install"
@@ -68,6 +66,15 @@ npm install n pkginit osx-wifi-cli standard pkginit picture-tube npmrc -g
 echo "configure pkginit"
 mkdir -p .config/pkginit/
 cp pkginit.json ~/.config/pkginit/default
+
+echo "configure image-diff"
+mkdir -p ~/.config/git
+touch ~/.config/git/attributes
+
+if ! grep -Fxq "image-diff" ~/.config/git/attributes
+then
+  cat git-attributes >> ~/.config/git/attributes
+fi
 
 echo "configure zshrc"
 mkdir -p ~/Documents/src
