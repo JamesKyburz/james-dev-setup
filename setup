@@ -46,7 +46,9 @@ done
 echo "configure vim"
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/colors
+mkdir -p ~/.vim/snippets
 cp -v .vim/colors/* ~/.vim/colors/
+cp -v .vim/snippets/* ~/.vim/snippets/
 vim +NeoBundleInstall +qall
 
 echo "configure osx"
