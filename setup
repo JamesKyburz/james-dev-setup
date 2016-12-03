@@ -62,7 +62,7 @@ npm config set save-exact true
 
 echo "installing npm modules"
 export NODE_PATH="/usr/local/lib/node_modules"
-npm install n pkginit osx-wifi-cli standard pkginit picture-tube npmrc travisify -g
+npm install n pkginit osx-wifi-cli standard pkginit picture-tube npmrc travisify greenkeeper -g
 
 echo "configure pkginit"
 mkdir -p .config/pkginit/
