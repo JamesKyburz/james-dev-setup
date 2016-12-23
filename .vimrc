@@ -145,6 +145,8 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
+imap jj <Esc>
+
 nmap <C-Up> [e
 nmap <C-Down> ]e
 vmap <C-Up> [egv
