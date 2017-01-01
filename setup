@@ -28,7 +28,7 @@ fi
 echo "installing brew cask"
 brew tap caskroom/cask
 
-casks=(google-chrome alfred docker bettertouchtool flux spotify sizeup 1password dropbox iterm hyper caffeine)
+casks=(google-chrome alfred docker bettertouchtool flux spotify sizeup dropbox iterm hyper caffeine)
 
 for cask in ${casks[@]}; do
   echo "installing $cask"
