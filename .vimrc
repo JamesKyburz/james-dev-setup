@@ -37,6 +37,7 @@ NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'ramitos/jsctags'
 NeoBundle 'moll/vim-node'
 NeoBundle 'ntpeters/vim-better-whitespace'
+NeoBundle 'wincent/command-t'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 call neobundle#end()
@@ -106,6 +107,8 @@ map <Tab> <C-W>w
 :command Q qall!
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-t> :CommandT<CR>
+
 let g:NERDTreeUpdateOnWrite = 1
 let NERDTreeMinimalUI = 1
 "autocmd vimenter * NERDTree
