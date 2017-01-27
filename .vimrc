@@ -39,6 +39,7 @@ NeoBundle 'moll/vim-node'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'wincent/command-t'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'vim-airline/vim-airline'
 
 call neobundle#end()
 
@@ -52,7 +53,6 @@ set mouse=a
 set spelllang=en_us
 set noswapfile
 set hidden
-set laststatus=2
 set nowrap
 set hlsearch
 set incsearch
@@ -170,3 +170,5 @@ let g:JSLintHighlightErrorLine = 0
 let macvim_hig_shift_movement = 1
 
 runtime! macros/matchit.vim
+
+let g:airline#extensions#tabline#enabled = 1
