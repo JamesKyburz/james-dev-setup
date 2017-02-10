@@ -1,11 +1,3 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="muse"
-
-plugins=(git zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-source ~/Documents/src/zsh_stuff/source_all.zsh
-
 export NODE_PATH="/usr/local/lib/node_modules"
 export EDITOR=vim
 
@@ -13,14 +5,33 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
 
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="muse"
+plugins=(git zsh-syntax-highlighting)
+
+autoload -U add-zsh-hook
+
+add-zsh-hook chpwd chpwd_update_npm_version
+
+function chpwd_update_npm_version() {
+  local version=$(npm version | head -n 1 | grep -v npm: | awk '{print $3}' | sed "s/[',]//g")
+  if ! [ -z "$version" ]; then
+    newps1=$(echo $PS1 | sed 's/\\@[^ ]*%//g' | sed "s/%~%/%~%\\\@$version%/")
+    export PS1="$newps1"
+  fi
+}
+
+source $ZSH/oh-my-zsh.sh
+source ~/Documents/src/zsh_stuff/source_all.zsh
+
 cdpath=(~/Documents/src)
 alias src="cd $cdpath"
 alias wifi=osx-wifi-cli
 alias vi=vim
 
 export PATH="$HOME/.yarn/bin:$PATH"
-###-begin-npm-completion-###
-#
+export PATH="$GOPATH/bin:$PATH"
+###-begin-npm-completion-### #
 # npm command completion script
 #
 # Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
