@@ -18,6 +18,9 @@ function chpwd_update_npm_version() {
   if ! [ -z "$version" ]; then
     newps1=$(echo $PS1 | sed 's/\\@[^ ]*%//g' | sed "s/%~%/%~%\\\@$version%/")
     export PS1="$newps1"
+  else
+    newps1=$(echo $PS1 | sed 's/\\@[^ ]*%//g')
+    export PS1="$newps1"
   fi
 }
 
