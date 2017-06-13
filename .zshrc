@@ -10,11 +10,6 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="muse"
 plugins=(git zsh-syntax-highlighting yarn)
 
-source $ZSH/oh-my-zsh.sh
-source ~/Documents/src/zsh_stuff/source_all.zsh
-source <(npx --shell-auto-fallback zsh)
-source <(npm completion)
-
 cdpath=(~/Documents/src)
 alias src="cd $cdpath"
 alias wifi=osx-wifi-cli
@@ -24,3 +19,9 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="/usr/local/lib/node_modules/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+
+source $ZSH/oh-my-zsh.sh
+source ~/Documents/src/zsh_stuff/source_all.zsh
+source <(npx --shell-auto-fallback zsh)
+source <(npm completion)
+
