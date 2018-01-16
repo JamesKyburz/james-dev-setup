@@ -4,6 +4,11 @@ echo "copy dotfiles (don't overwrite .gitconfig)"
 cp -v .vimrc .zshrc .npmrc ~/
 cp -n -v .gitconfig ~/
 
+echo "setup aws"
+curl -O https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py --user
+pip3 install awscli --upgrade --user
+
 echo "copy git plugins"
 sudo mkdir -p /usr/local/bin
 sudo cp -v git-* /usr/local/bin/

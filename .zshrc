@@ -19,6 +19,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="/usr/local/lib/node_modules/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 source ~/Documents/src/zsh_stuff/source_all.zsh
