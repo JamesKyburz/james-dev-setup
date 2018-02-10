@@ -40,6 +40,9 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'wincent/command-t'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'w0rp/ale'
+NeoBundle 'iandoe/vim-osx-colorpicker'
+NeoBundle 'pangloss/vim-javascript'
 
 call neobundle#end()
 
@@ -111,16 +114,14 @@ map <C-t> :CommandT<CR>
 
 let g:NERDTreeUpdateOnWrite = 1
 let NERDTreeMinimalUI = 1
-"autocmd vimenter * NERDTree
 
-colors neon
+colorscheme minimalist
 
-set synmaxcol=128
-let &colorcolumn="80,".join(range(128,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
-let g:syntastic_javascript_checkers = ['standard']
-"autocmd bufwritepost *.js silent !standard --fix index.js % &>/dev/null
+let g:ale_fixers = {'javascript': ['prettier_standard']}
+let g:ale_linters = {'javascript': ['']}
+let g:ale_fix_on_save = 1
 
 let g:vim_json_syntax_conceal = 0
 
@@ -172,3 +173,10 @@ let macvim_hig_shift_movement = 1
 runtime! macros/matchit.vim
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_arrow_function       = "⇒"
+
+set conceallevel=1
