@@ -176,7 +176,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_return               = "⏎"
 let g:javascript_conceal_arrow_function       = "⇒"
-
 set conceallevel=1
