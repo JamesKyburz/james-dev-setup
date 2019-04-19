@@ -43,6 +43,8 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'w0rp/ale'
 NeoBundle 'iandoe/vim-osx-colorpicker'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'cespare/vim-toml'
 
 call neobundle#end()
 
