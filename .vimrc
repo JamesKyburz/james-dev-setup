@@ -43,6 +43,8 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'w0rp/ale'
 NeoBundle 'iandoe/vim-osx-colorpicker'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'rust-lang/rustfmt'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'cespare/vim-toml'
 
@@ -124,6 +126,9 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let g:ale_fixers = {'javascript': ['prettier_standard']}
 let g:ale_linters = {'javascript': ['']}
 let g:ale_fix_on_save = 1
+
+let g:rust_recommended_style = 0
+let g:rustfmt_autosave = 1
 
 let g:vim_json_syntax_conceal = 0
 

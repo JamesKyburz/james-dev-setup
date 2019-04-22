@@ -49,6 +49,15 @@ done
 
 echo "configure rust"
 curl https://sh.rustup.rs -sSf -o install
+source ~/.cargo/env
+
+echo "configure rustfmt"
+rustup component add rustfmt --toolchain stable-x86_64-apple-darwin
+mkdir -p $HOME/Library/Preferences/rustfmt/
+echo """
+hard_tabs = false
+tab_spaces = 2
+""" > $HOME/Library/Preferences/rustfmt/rustfmt.toml
 
 echo "configure deno"
 curl -fsSL https://deno.land/x/install/install.sh | sh
