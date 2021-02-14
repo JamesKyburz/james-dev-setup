@@ -26,7 +26,6 @@ bashcompinit
 
 source $ZSH/oh-my-zsh.sh
 source ~/Documents/src/zsh_stuff/source_all.zsh
-source <(npx --shell-auto-fallback zsh)
 source <(npm completion)
 source <(node --completion-bash)
 source ~/.cargo/env
